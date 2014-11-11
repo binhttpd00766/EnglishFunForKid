@@ -1258,6 +1258,7 @@ containing a value of this type.
         public static final int IvAudio=0x7f060043;
         public static final int IvList=0x7f06004a;
         public static final int IvNext=0x7f06004c;
+        public static final int IvNumber=0x7f060062;
         public static final int IvPk2d1=0x7f060047;
         public static final int IvPrevious=0x7f060049;
         public static final int IvRepeat=0x7f06004b;

@@ -4,17 +4,19 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.fpoly.db.Mydatabase;
 import com.fpoly.englishfunforkid.R;
 
 @SuppressLint("NewApi")
 public class Home extends Fragment {
 	Activity root;
-
+	Mydatabase mydb;
+	
+	
 	public Home() {
 	}
 
@@ -26,6 +28,7 @@ public class Home extends Fragment {
 
 		View rootView = inflater
 				.inflate(R.layout.screen_home, container, false);
+		
 
 		return rootView;
 	}

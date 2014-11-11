@@ -31,8 +31,8 @@ public class English {
 
 	
 	private int Image;
-	private String Audio;
-	private String Decription;
+	private String Audio = "";
+	private String Decription = "";
 
 	public English() {
 

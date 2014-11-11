@@ -1,5 +1,6 @@
 package com.fpoly.main;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
@@ -8,6 +9,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.res.Configuration;
+import android.database.SQLException;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -26,7 +28,8 @@ import com.fpoly.main.menu.MenuListAdapter;
 import com.fpoly.object.English;
 
 public class MainActivity extends Activity {
-	Mydatabase mydb;
+	ArrayList<English>arrEnglish = new ArrayList<English>();
+	English english;
 
 	// CÁC THÀNH PHẦN CỦA MENU
 	private DrawerLayout mainLayout;
@@ -40,8 +43,8 @@ public class MainActivity extends Activity {
 	private CharSequence mTitle;
 
 	// TIÊU ĐỀ VÀ ICON
-	private String[] navMenuTitles = { "Home", "CATEGORY", "Animal",
-			"Fruit", "Shape", "Color", "Body", "Day", "Letter", "Number" };
+	private String[] navMenuTitles = { "Home", "CATEGORY", "Animal", "Fruit",
+			"Shape", "Color", "Body", "Day", "Letter", "Number" };
 
 	private int[] navMenuIcons = { R.drawable.ic_menu_home, 0,
 			R.drawable.ic_menu_animals, R.drawable.ic_menu_fruits,
@@ -58,9 +61,17 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		Mydatabase mydb = new Mydatabase(getApplicationContext());
-		mydb.addCauhoi(new English(1,"pack1d1","1"));
+		Mydatabase mydb = new Mydatabase(this);
+		mydb = new Mydatabase(this);
+		try {
+			mydb.createDatabase();
+		} catch (IOException e) {
+			throw new Error("Unable to create database");
+		}
+		
+
 		init();
+	
 		if (savedInstanceState == null) {
 
 			displayView(0);
@@ -81,7 +92,7 @@ public class MainActivity extends Activity {
 
 		// Trang chu
 		navDrawerItems.add(new MenuItem(navMenuTitles[0], navMenuIcons[1]));
-//
+		//
 		// CHUYEN MUC
 		navDrawerItems.add(new MenuItem(navMenuTitles[1]));
 
@@ -257,6 +268,12 @@ public class MainActivity extends Activity {
 
 	public void Onclick_Number(View v) {
 		displayView(9);
+		Mydatabase mydb = new Mydatabase(getApplicationContext());
+		arrEnglish = new ArrayList<English>();
+		arrEnglish = mydb.GetAllInEnglish();
+		Log.d("Sample---------------------==============================", arrEnglish.size() + "--------------------------------------------------------");
+		
+		
 	}
 
 	public void Onclick_Color(View v) {

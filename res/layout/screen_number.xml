@@ -47,7 +47,7 @@
         android:orientation="vertical" >
 
         <ImageView
-            android:id="@+id/IvPk2d1"
+            android:id="@+id/IvNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/pack1d1" />

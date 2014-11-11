@@ -420,6 +420,7 @@ int drawable text_on 0x7f020108
 int id IvAudio 0x7f060043
 int id IvList 0x7f06004a
 int id IvNext 0x7f06004c
+int id IvNumber 0x7f060062
 int id IvPk2d1 0x7f060047
 int id IvPrevious 0x7f060049
 int id IvRepeat 0x7f06004b
